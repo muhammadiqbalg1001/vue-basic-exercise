@@ -37,9 +37,35 @@
                         {{ error }}
                     </p>
                 </div>
+
+                <div class="flex space-x-2">
+                    <div
+                        class=" mt-2 px-3 py-1 bg-blue-400 text-white hover:bg-gray-800"
+                        v-for="(name, index) in names"
+                        :key="name"
+                        @click="removeName(index)"
+                    >
+                        {{ name }}
+                    </div>
+                </div>
+
+                <div
+                    v-if="isReady"
+                >
+                    <button 
+                        @click="showResult"
+                        class="my-5 w-80 border-2 border-gray-950 text-black hover:bg-gray-600 hover:text-white"
+                    >
+                        Check the winner
+                    </button>
+                </div>
             </div>
         </div>
-        <!-- <div id="result" class="" v-if=":state"></div> -->
+        <div id="result" class="container mx-auto" v-if="!state">
+            <div class="flex flex-col justify-between items-start py-10">
+                RESULT
+            </div>
+        </div>
     </div>
 
 </body>
