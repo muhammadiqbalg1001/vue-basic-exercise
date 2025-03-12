@@ -6,6 +6,10 @@
     <title>Randomize Generate</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 </head>
 <body>
 
@@ -33,14 +37,14 @@
                     class="py-2"
                     v-if="showError"
                 >
-                    <p class="font-bold text-red-500">
+                    <p class="font-bold text-red-500 animate__animated animate__shakeX">
                         {{ error }}
                     </p>
                 </div>
 
                 <div class="flex space-x-2">
                     <div
-                        class=" mt-2 px-3 py-1 bg-blue-400 text-white hover:bg-gray-800"
+                        class=" mt-2 px-3 py-1 bg-blue-400 text-white hover:bg-gray-800 animate__animated animate__fadeIn"
                         v-for="(name, index) in names"
                         :key="name"
                         @click="removeName(index)"
@@ -51,6 +55,7 @@
 
                 <div
                     v-if="isReady"
+                    class="animate__animated animate__bounceIn"
                 >
                     <button 
                         @click="showResult"
@@ -61,8 +66,8 @@
                 </div>
             </div>
         </div>
-        <div id="result" class="container mx-auto" v-if="!state">
-            <div class="flex flex-col justify-between items-start py-10">
+        <div id="result" class="container mx-auto animate__animated animate__fadeIn" v-if="!state">
+            <div class="flex flex-col justify-center items-center h-screen">
                 RESULT
             </div>
         </div>

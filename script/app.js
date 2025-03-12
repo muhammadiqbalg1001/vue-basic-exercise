@@ -20,7 +20,6 @@ const app = Vue.createApp({
                 this.names.push(userName);
                 this.inputName = '';
                 this.showError = false;
-                console.log(this.names)
             } else {
                 this.showError = true
             }
