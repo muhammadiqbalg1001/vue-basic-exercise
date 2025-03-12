@@ -4,6 +4,8 @@ const app = Vue.createApp({
             state: true,
             inputName: '',
             names: [],
+            error: '',
+            showError: false,
         }
     },
     methods: {
@@ -12,12 +14,24 @@ const app = Vue.createApp({
             if (this.validate(userName)) {
                 this.names.push(userName);
                 this.inputName = '';
+                this.showError = false;
                 console.log(this.names)
             } else {
-                console.log('name error')
+                this.showError = true
             }
         },
-        validate() {
+        validate(value) {
+            this.error = '';
+            if (value === '') {
+                this.error = "Name can't be empty"
+                return false
+            }
+
+            if (this.names.includes(value)) {
+                this.error = 'Name is already in the list, please input unique name'
+                return false
+            }
+
             return true
         }
     },

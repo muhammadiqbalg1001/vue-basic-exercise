@@ -29,6 +29,14 @@
                         Add
                     </button>
                 </div>
+                <div
+                    class="py-2"
+                    v-if="showError"
+                >
+                    <p class="font-bold text-red-500">
+                        {{ error }}
+                    </p>
+                </div>
             </div>
         </div>
         <!-- <div id="result" class="" v-if=":state"></div> -->
