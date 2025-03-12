@@ -14,7 +14,7 @@
 <body>
 
     <div id="app">
-        <div id="names" class="container mx-auto" v-if="state">
+        <div id="names" class="container mx-auto animate__animated animate__fadeIn" v-if="state">
             <div class="flex flex-col justify-center items-center h-screen">
                 <div class="py-5">
                     <h1 class="text-4xl text-gray-800 font-semibold">Who can get a prize</h1>
@@ -68,7 +68,26 @@
         </div>
         <div id="result" class="container mx-auto animate__animated animate__fadeIn" v-if="!state">
             <div class="flex flex-col justify-center items-center h-screen">
-                RESULT
+                <h1 class="text-4xl font-semibold">
+                    The Winner is :
+                </h1>
+                <p class="text-6xl font-semibold my-10">
+                    {{ result }}
+                </p>
+
+                <button
+                    @click="resetApp"
+                    class="my-5 w-80 border-2 border-gray-950 text-black hover:bg-gray-600 hover:text-white animate__animated animate__bounceIn"
+                >
+                    Mulai Lagi Yuk !
+                </button>
+
+                <button
+                    @click="getNewResult"
+                    class="my-5 w-80 border-2 border-blue-600 text-black hover:bg-blue-600 hover:text-white animate__animated animate__bounceIn"
+                >
+                    Ganti Pemenang ! 
+                </button>
             </div>
         </div>
     </div>
